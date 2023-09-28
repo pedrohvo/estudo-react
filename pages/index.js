@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-function Home(){
+const Home = () =>{
     return (
         <div>
             <UsarEstado/>
@@ -12,7 +12,7 @@ function Home(){
     )
 }
 
-function UsarEstado(){
+const UsarEstado = () => {
     const [contador, setContador] = useState(0);
     const user = {
         name: 'Hedy Lamarr',
@@ -73,7 +73,26 @@ const UsarEffect = () => {
 }
 
 const UsarRef = () =>{
-    
+    const [name, setName] = useState("");
+
+    const inputRef = useRef();
+
+    const focusInput = () => {
+        inputRef.current.focus();
+    }
+
+    return (
+        <div>
+            <input 
+                ref={inputRef} 
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+            />
+            <p>Oi meu nome é {name}</p>
+            <button onClick={focusInput}>Focar no input</button>
+        </div>
+    )
+
 }
 
 export default Home
