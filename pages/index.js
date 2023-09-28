@@ -7,6 +7,7 @@ const Home = () =>{
             <br />
             <UsarEffect/>
             <br />
+            <UsarRef />
 
         </div>
     )
@@ -83,6 +84,7 @@ const UsarRef = () =>{
 
     return (
         <div>
+             <h1 style={{color:"#a28aff"}}> Exemplo de UseRef</h1>
             <input 
                 ref={inputRef} 
                 value={name}
